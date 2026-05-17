@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Age Calculator – Calculate Exact Age in Years, Months, Days, Hours & Seconds</title>
+    <meta name="description" content="Free Age Calculator tool to calculate exact age instantly in years, months, days, hours, minutes and seconds. Fast and mobile-friendly.">
+    <meta name="keywords" content="age calculator, online age calculator, birthday calculator, DOB calculator, calculate age in seconds">
+    <meta name="author" content="Age Calculator">
+    <meta name="theme-color" content="#0f0f0f">
+    <link rel="canonical" href="https://yourdomain.com">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Age Calculator",
+            "description": "Free online age calculator to calculate exact age in years, months, days, hours, minutes, and seconds.",
+            "applicationCategory": "Utility",
+            "operatingSystem": "All",
+            "offers": {
+                "@type": "Offer",
+                "price": "0"
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bg-orb bg-orb--1"></div>
+    <div class="bg-orb bg-orb--2"></div>
+    <div class="bg-orb bg-orb--3"></div>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+        <span class="theme-toggle__icon theme-toggle__icon--sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </span>
+        <span class="theme-toggle__icon theme-toggle__icon--moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </span>
+        <span class="theme-toggle__slider"></span>
+    </button>
+
+    <main class="container">
+        <nav class="nav-bar" aria-label="Main navigation">
+            <a class="nav-bar__link nav-bar__link--active" data-page="home">Home</a>
+            <a class="nav-bar__link" data-page="about">About</a>
+            <a class="nav-bar__link" data-page="contact">Contact</a>
+            <a class="nav-bar__link" data-page="privacy">Privacy Policy</a>
+            <a class="nav-bar__link" data-page="terms">Terms</a>
+        </nav>
+
+        <div id="page-home" class="page-section active">
+            <section class="hero">
+                <span class="hero__badge">✨ Premium Tool</span>
+                <h1 class="hero__title">Calculate Your Exact Age <span class="hero__title-accent">Instantly</span></h1>
+                <p class="hero__subtitle">Find your precise age in years, months, days, hours, minutes, and seconds — updated live every second.</p>
+
+                <div class="hero__form" id="heroForm">
+                    <div class="input-group">
+                        <label for="dobInput" class="input-group__label">Your Date of Birth</label>
+                        <div class="input-group__wrapper">
+                            <svg class="input-group__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            <input type="date" id="dobInput" class="input-group__input" max="" aria-label="Date of birth input">
+                        </div>
+                        <span class="input-group__error" id="inputError" aria-live="polite"></span>
+                    </div>
+                    <button class="btn-calculate" id="calculateBtn" aria-label="Calculate age">
+                        <span class="btn-calculate__text">Calculate My Age</span>
+                        <span class="btn-calculate__arrow">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </span>
+                    </button>
+                </div>
+            </section>
+
+            <div class="ad-container"></div>
+
+            <section class="results" id="resultsSection" aria-hidden="true">
+                <h2 class="results__heading">Your Exact Age Breakdown</h2>
+                <div class="results__grid" id="resultsGrid">
+                    <div class="result-card result-card--years" style="--card-delay: 0ms;">
+                        <div class="result-card__inner">
+                            <span class="result-card__icon">📅</span>
+                            <span class="result-card__value" id="resultYears">—</span>
+                            <span class="result-card__label">Years</span>
+                        </div>
+                        <div class="result-card__glow"></div>
+                    </div>
+                    <div class="result-card result-card--months" style="--card-delay: 60ms;">
+                        <div class="result-card__inner">
+                            <span class="result-card__icon">🌙</span>
+                            <span class="result-card__value" id="resultMonths">—</span>
+                            <span class="result-card__label">Months</span>
+                        </div>
+                        <div class="result-card__glow"></div>
+                    </div>
+                    <div class="result-card result-card--days" style="--card-delay: 120ms;">
+                        <div class="result-card__inner">
+                            <span class="result-card__icon">☀️</span>
+                            <span class="result-card__value" id="resultDays">—</span>
+                            <span class="result-card__label">Days</span>
+                        </div>
+                        <div class="result-card__glow"></div>
+                    </div>
+                    <div class="result-card result-card--hours" style="--card-delay: 180ms;">
+                        <div class="result-card__inner">
+                            <span class="result-card__icon">🕐</span>
+                            <span class="result-card__value" id="resultHours">—</span>
+                            <span class="result-card__label">Hours</span>
+                        </div>
+                        <div class="result-card__glow"></div>
+                    </div>
+                    <div class="result-card result-card--minutes" style="--card-delay: 240ms;">
+                        <div class="result-card__inner">
+                            <span class="result-card__icon">⏱️</span>
+                            <span class="result-card__value" id="resultMinutes">—</span>
+                            <span class="result-card__label">Minutes</span>
+                        </div>
+                        <div class="result-card__glow"></div>
+                    </div>
+                    <div class="result-card result-card--seconds result-card--live" style="--card-delay: 300ms;">
+                        <div class="result-card__inner">
+                            <span class="result-card__icon">⚡</span>
+                            <span class="result-card__value result-card__value--pulse" id="resultSeconds">—</span>
+                            <span class="result-card__label">Seconds</span>
+                            <span class="result-card__live-dot"></span>
+                        </div>
+                        <div class="result-card__glow"></div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="ad-container"></div>
+
+            <section class="extra-info" id="extraInfoSection" aria-hidden="true">
+                <h2 class="extra-info__heading">Your Life in Numbers</h2>
+                <div class="extra-info__grid" id="extraInfoGrid">
+                    <div class="info-item" style="--info-delay: 0ms;">
+                        <span class="info-item__label">Day of Birth</span>
+                        <span class="info-item__value" id="infoDayOfBirth">—</span>
+                    </div>
+                    <div class="info-item" style="--info-delay: 50ms;">
+                        <span class="info-item__label">Total Months Lived</span>
+                        <span class="info-item__value" id="infoTotalMonths">—</span>
+                    </div>
+                    <div class="info-item" style="--info-delay: 100ms;">
+                        <span class="info-item__label">Total Weeks Lived</span>
+                        <span class="info-item__value" id="infoTotalWeeks">—</span>
+                    </div>
+                    <div class="info-item" style="--info-delay: 150ms;">
+                        <span class="info-item__label">Total Days Lived</span>
+                        <span class="info-item__value" id="infoTotalDays">—</span>
+                    </div>
+                    <div class="info-item" style="--info-delay: 200ms;">
+                        <span class="info-item__label">Total Hours Lived</span>
+                        <span class="info-item__value" id="infoTotalHours">—</span>
+                    </div>
+                    <div class="info-item" style="--info-delay: 250ms;">
+                        <span class="info-item__label">Total Minutes Lived</span>
+                        <span class="info-item__value" id="infoTotalMinutes">—</span>
+                    </div>
+                    <div class="info-item info-item--highlight" style="--info-delay: 300ms;">
+                        <span class="info-item__label">Total Seconds Lived</span>
+                        <span class="info-item__value info-item__value--large" id="infoTotalSeconds">—</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="countdown" id="countdownSection" aria-hidden="true">
+                <h2 class="countdown__heading">🎂 Next Birthday Countdown</h2>
+                <p class="countdown__date" id="countdownDateLabel">—</p>
+                <div class="countdown__grid" id="countdownGrid">
+                    <div class="countdown-card" style="--cd-delay: 0ms;">
+                        <span class="countdown-card__value" id="cdMonths">—</span>
+                        <span class="countdown-card__label">Months</span>
+                    </div>
+                    <div class="countdown-card" style="--cd-delay: 60ms;">
+                        <span class="countdown-card__value" id="cdDays">—</span>
+                        <span class="countdown-card__label">Days</span>
+                    </div>
+                    <div class="countdown-card" style="--cd-delay: 120ms;">
+                        <span class="countdown-card__value" id="cdHours">—</span>
+                        <span class="countdown-card__label">Hours</span>
+                    </div>
+                    <div class="countdown-card" style="--cd-delay: 180ms;">
+                        <span class="countdown-card__value" id="cdMinutes">—</span>
+                        <span class="countdown-card__label">Minutes</span>
+                    </div>
+                    <div class="countdown-card countdown-card--seconds" style="--cd-delay: 240ms;">
+                        <span class="countdown-card__value countdown-card__value--pulse" id="cdSeconds">—</span>
+                        <span class="countdown-card__label">Seconds</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fun-facts" id="funFactsSection" aria-hidden="true">
+                <h2 class="fun-facts__heading">✨ Fun Life Stats</h2>
+                <div class="fun-facts__grid" id="funFactsGrid">
+                    <div class="fun-card" style="--fun-delay: 0ms;">
+                        <span class="fun-card__icon">💓</span>
+                        <span class="fun-card__value" id="funHeartbeats">—</span>
+                        <span class="fun-card__label">Approx. Heartbeats</span>
+                        <span class="fun-card__sub">at ~72 bpm</span>
+                    </div>
+                    <div class="fun-card" style="--fun-delay: 80ms;">
+                        <span class="fun-card__icon">🫁</span>
+                        <span class="fun-card__value" id="funBreaths">—</span>
+                        <span class="fun-card__label">Approx. Breaths Taken</span>
+                        <span class="fun-card__sub">at ~16 per minute</span>
+                    </div>
+                    <div class="fun-card" style="--fun-delay: 160ms;">
+                        <span class="fun-card__icon">😴</span>
+                        <span class="fun-card__value" id="funSleepHours">—</span>
+                        <span class="fun-card__label">Approx. Hours Slept</span>
+                        <span class="fun-card__sub">at ~8 hrs per day</span>
+                    </div>
+                </div>
+            </section>
+
+            <div class="ad-container"></div>
+        </div>
+
+        <div id="page-about" class="page-section">
+            <section class="content-card">
+                <h2>About Age Calculator</h2>
+                <p><strong>Age Calculator</strong> is a free online tool designed to instantly calculate your exact age in years, months, days, hours, minutes, and seconds. We built it to be fast, accurate, and mobile-friendly.</p>
+                <p>Our tool accounts for leap years and provides a precise breakdown of your current age, along with a countdown to your next birthday and interesting life statistics like total heartbeats and breaths.</p>
+                <p>If you have any questions or feedback, feel free to <a href="#" data-page="contact">contact us</a>.</p>
+                <p>Email: <a href="mailto:rjamshaid004@gmail.com">rjamshaid004@gmail.com</a></p>
+            </section>
+        </div>
+
+        <div id="page-contact" class="page-section">
+            <section class="content-card">
+                <h2>Contact Us</h2>
+                <p>If you have any questions, suggestions, or need support, please reach out. We usually respond within <strong>24–48 hours</strong>.</p>
+                <p>Email: <a href="mailto:rjamshaid004@gmail.com">rjamshaid004@gmail.com</a></p>
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('This is a demo form. Please email us directly.');">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea rows="4" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </section>
+        </div>
+
+        <div id="page-privacy" class="page-section">
+            <section class="content-card">
+                <h2>Privacy Policy</h2>
+                <p><strong>Last updated:</strong> 2026-01-01</p>
+                <p>Your privacy is important to us. This Privacy Policy explains how the Age Calculator website handles your information.</p>
+                <ul>
+                    <li><strong>No data storage:</strong> We do not store any user data, including the date of birth you enter. All calculations are performed locally in your browser.</li>
+                    <li><strong>Cookies & third-party ads:</strong> Third-party vendors, including Google AdSense, may use cookies to serve personalized ads. Learn more at <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google's Privacy & Terms</a>.</li>
+                    <li><strong>User data safety:</strong> We do not collect, share, or sell any personally identifiable information.</li>
+                    <li><strong>Your choices:</strong> You can disable cookies through your browser settings. Visit <a href="https://www.aboutads.info" target="_blank" rel="noopener">AboutAds.info</a> for more information.</li>
+                </ul>
+                <p>If you have any questions, contact us at <a href="mailto:rjamshaid004@gmail.com">rjamshaid004@gmail.com</a>.</p>
+            </section>
+        </div>
+
+        <div id="page-terms" class="page-section">
+            <section class="content-card">
+                <h2>Terms & Conditions</h2>
+                <p><strong>Last updated:</strong> 2026-01-01</p>
+                <p>By using the Age Calculator, you agree to the following terms:</p>
+                <ul>
+                    <li>This tool is provided for <strong>informational purposes only</strong>. While we strive for accuracy, we do not guarantee 100% precision.</li>
+                    <li>The website owner is <strong>not responsible</strong> for any damages or losses arising from the use of this tool.</li>
+                    <li>Users assume <strong>full responsibility</strong> for their use of the Age Calculator.</li>
+                    <li>We reserve the right to modify these terms at any time without prior notice.</li>
+                </ul>
+                <p>If you do not agree with these terms, please discontinue use of the tool.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__text">&copy; <span id="footerYear">2026</span> Age Calculator. Built with precision & care.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
